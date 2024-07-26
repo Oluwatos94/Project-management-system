@@ -23,8 +23,8 @@ class ProjectResource extends JsonResource
             'image_path' => $this->image,
             'created_at' => (new Carbon($this->created_at))->format('Y-m-d '),
             'due_date' => (new carbon($this->due_date))->format('Y-m-d '),
-            'created by' => new UserResource($this->user),
-            'updated by' => new UserResource($this->user),
+            'createdBy' => new UserResource($this->user),
+            'updatedBy' => new UserResource($this->user),
         ];
     }
 }
