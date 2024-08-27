@@ -42,12 +42,12 @@ const sortChanged = (name) => {
     router.get(route("project.index"), queryParams);
 };
 
-// const deleteProject = (project) => {
-//     if (!window.confirm("Are you sure you want to delete the project?")) {
-//         return;
-//     }
-//     router.delete(route("project.destroy", project.id));
-// };
+const deleteProject = (project) => {
+    if (!window.confirm("Are you sure you want to delete the project?")) {
+        return;
+    }
+    router.delete(route("project.destroy", project.id));
+};
 
     return (
         <AuthenticatedLayout
@@ -57,12 +57,12 @@ const sortChanged = (name) => {
                 <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 Projects
                 </h2>
-                {/* <Link
+                <Link
                 href={route("project.create")}
                 className="bg-emerald-500 py-1 px-3 text-white rounded shadow transition-all hover:bg-emerald-600"
                 >
                 Add new
-                </Link> */}
+                </Link>
             </div>
             }
         >
