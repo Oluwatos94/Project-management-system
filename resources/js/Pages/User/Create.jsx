@@ -1,24 +1,21 @@
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
-import SelectInput from "@/Components/SelectInput";
-import TextAreaInput from "@/Components/TextAreaInput";
 import TextInput from "@/Components/TextInput";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
 
-export default function Create({ auth, user }) {
-    const { data, setData, post, errors, reset } = useForm({
-        name: user.name || "",
-        email: user.email || "",
+export default function Create({ auth }) {
+    const { data, setData, post, errors, } = useForm({
+        name: "",
+        email: "",
         password: "",
         password_confirmation: "",
-        _method: "PUT",
     });
 
     const onSubmit = (e) => {
         e.preventDefault();
 
-        post(route("user.update", user.id));
+        post(route("user.store"));
     };
 
     return (
@@ -27,7 +24,7 @@ export default function Create({ auth, user }) {
         header={
             <div className="flex justify-between items-center">
             <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                Edit user "{user.name}"
+                Create new User
             </h2>
             </div>
         }
@@ -108,6 +105,7 @@ export default function Create({ auth, user }) {
                     className="mt-2"
                     />
                 </div>
+
                 <div className="mt-4 text-right">
                     <Link
                     href={route("user.index")}
