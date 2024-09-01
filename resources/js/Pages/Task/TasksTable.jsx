@@ -38,12 +38,12 @@ const sortChanged = (name) => {
     router.get(route("task.index"), queryParams);
 };
 
-// const deleteTask = (Task) => {
-//     if (!window.confirm("Are you sure you want to delete the Task?")) {
-//         return;
-//     }
-//     router.delete(route("Task.destroy", Task.id));
-// };
+const deleteTask = (task) => {
+    if (!window.confirm("Are you sure you want to delete the task?")) {
+        return;
+    }
+    router.delete(route("task.destroy", task.id));
+};
 
 
     return (
